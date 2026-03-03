@@ -130,9 +130,15 @@ body {
 }
 
 .navbar a:hover, 
-.navbar a.active {
-  color: var(--white);
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+.navbar a.active,
+.navbar a.nav-link.active,
+.navbar a.scrollto.active,
+.navbar li a.active,
+#navbar a.active,
+#navbar a.nav-link.active,
+#navbar a.scrollto.active {
+  color: var(--white) !important;
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light)) !important;
   box-shadow: 0 4px 15px rgba(25, 119, 204, 0.3);
 }
 
@@ -879,6 +885,223 @@ section {
 
 .img-fluid:hover {
   transform: scale(1.03);
+}
+
+/* ===========================================
+   FAQ Section
+   =========================================== */
+
+.faq {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 100px 0;
+}
+
+.faq .section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.faq .section-title h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.faq .section-title p {
+  color: var(--text-gray);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-list li {
+  background: white;
+  border-radius: 16px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-list li:hover {
+  box-shadow: 0 10px 30px rgba(25, 119, 204, 0.1);
+  border-color: var(--primary-blue);
+}
+
+.faq-list li a {
+  display: block;
+  padding: 20px 25px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-list li a:hover {
+  color: var(--primary-blue);
+}
+
+.faq-list li a i {
+  float: right;
+  font-size: 20px;
+  color: var(--primary-blue);
+  transition: transform 0.3s ease;
+}
+
+.faq-list li a.collapsed i.bi-chevron-down {
+  transform: rotate(0deg);
+}
+
+.faq-list li a i.bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.faq-list li .collapse {
+  padding: 0 25px 20px;
+}
+
+.faq-list li .collapse p {
+  color: var(--text-gray);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ===========================================
+   Contact Form Section
+   =========================================== */
+
+.contact {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 100px 0;
+}
+
+.contact .section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact .section-title h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.contact .section-title b {
+  font-size: 18px;
+  color: var(--primary-blue);
+}
+
+.contact .section-title p {
+  color: var(--text-gray);
+  font-size: 16px;
+}
+
+.contact .info {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.contact .info .email,
+.contact .info .phone {
+  margin-bottom: 20px;
+}
+
+.contact .info i {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.contact .info h4 {
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contact .info p,
+.contact .info a {
+  color: var(--text-gray);
+  margin: 0;
+}
+
+.contact .info a:hover {
+  color: var(--primary-blue);
+}
+
+.contact .php-email-form {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+}
+
+.contact .php-email-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  background: #f8fafc;
+  border: 2px solid transparent;
+  color: var(--text-dark);
+  padding: 16px 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  background: white;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(25, 119, 204, 0.1);
+  outline: none;
+}
+
+.contact .php-email-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact .php-email-form button[type="submit"] {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+  color: white;
+  padding: 16px 45px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(25, 119, 204, 0.4);
 }
 
 /* ===========================================

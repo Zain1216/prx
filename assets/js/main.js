@@ -74,6 +74,26 @@
   /**
    * Navbar links active state on scroll
    */
+  
+  // First, set active class based on current page URL
+  const setActivePage = () => {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('#navbar .nav-link');
+    
+    navLinks.forEach(link => {
+      const linkPath = link.getAttribute('href');
+      if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+  
+  // Run on page load
+  setActivePage();
+  
+  // Also keep scroll-based active state for single-page navigation
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
     let position = window.scrollY + 200
