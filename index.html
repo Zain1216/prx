@@ -14,9 +14,7 @@
   <link href="assets/img/fav.jpg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -41,7 +39,6 @@
   <!-- Lenis Smooth Scroll -->
   <script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
 
-  <!-- Custom Animation CSS -->
   <style>
     /* Hero Canvas for Three.js */
     #hero-canvas {
@@ -52,32 +49,17 @@
       height: 100%;
       z-index: 1;
     }
-
-    /* Animation Classes */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-
-    .gsap-reveal {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    /* Navbar scroll effect */
+    .gsap-reveal { opacity: 0; transform: translateY(30px); }
     .navbar-scrolled {
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.95) !important;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
     }
-
-    /* Button hover effects */
     .btn-animate {
       position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
     }
-
     .btn-animate::before {
       content: '';
       position: absolute;
@@ -88,31 +70,11 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
       transition: left 0.5s;
     }
-
-    .btn-animate:hover::before {
-      left: 100%;
-    }
-
-    /* Card hover effects */
-    .card-animate {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card-animate:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(25, 119, 204, 0.2);
-    }
-
-    /* Icon box animation */
-    .icon-box-animate {
-      transition: all 0.3s ease;
-    }
-
-    .icon-box-animate:hover {
-      transform: scale(1.05);
-    }
-
-    /* Preloader enhanced */
+    .btn-animate:hover::before { left: 100%; }
+    .card-animate { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-animate:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(25, 119, 204, 0.2); }
+    .icon-box-animate { transition: all 0.3s ease; }
+    .icon-box-animate:hover { transform: scale(1.05); }
     #preloader {
       position: fixed;
       top: 0;
@@ -122,6 +84,44 @@
       z-index: 99999;
       overflow: hidden;
       background: #fff;
+    }
+    #preloader:before {
+      content: '';
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+      border: 4px solid #1977cc;
+      border-top-color: transparent;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: animate-preloader 1s linear infinite;
+    }
+    @keyframes animate-preloader { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .float-animation { animation: float 3s ease-in-out infinite; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-clock"></i>&nbsp; Monday - Thursday 0900 - 0430 - Friday 0900-1200
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> &nbsp;Call us now 9727774428
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo"><a href="index.html"></a></h1>
+      <a href="index.html" class="logo"><img src="assets/img/prx-research-logo.webp" width="100%" alt="" class="img-fluid"></a>
     }
 
     #preloader:before {
