@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PRX Research</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/fav.jpg" rel="icon">
+  <link href="assets/img/fav.jpg" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    CSS.g-6,
+    .gx-6 {
+      --bs-gutter-x: 4.5rem;
+    }
+
+    .g-6,
+    .gy-6 {
+      --bs-gutter-y: 4.5rem;
+    }
+
+    @media (min-width: 576px) {
+
+      .g-sm-6,
+      .gx-sm-6 {
+        --bs-gutter-x: 4.5rem;
+      }
+
+      .g-sm-6,
+      .gy-sm-6 {
+        --bs-gutter-y: 4.5rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+
+      .g-md-6,
+      .gx-md-6 {
+        --bs-gutter-x: 4.5rem;
+      }
+
+      .g-md-6,
+      .gy-md-6 {
+        --bs-gutter-y: 4.5rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+
+      .g-lg-6,
+      .gx-lg-6 {
+        --bs-gutter-x: 4.5rem;
+      }
+
+      .g-lg-6,
+      .gy-lg-6 {
+        --bs-gutter-y: 4.5rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+
+      .g-xl-6,
+      .gx-xl-6 {
+        --bs-gutter-x: 4.5rem;
+      }
+
+      .g-xl-6,
+      .gy-xl-6 {
+        --bs-gutter-y: 4.5rem;
+      }
+    }
+
+    @media (min-width: 1400px) {
+
+      .g-xxl-6,
+      .gx-xxl-6 {
+        --bs-gutter-x: 4.5rem;
+      }
+
+      .g-xxl-6,
+      .gy-xxl-6 {
+        --bs-gutter-y: 4.5rem;
+      }
+    }
+
+    .mb-6 {
+      margin-bottom: 4.5rem !important;
+    }
+
+    .py-6 {
+      padding-top: 4.5rem !important;
+      padding-bottom: 4.5rem !important;
+    }
+
+    .w-65 {
+      width: 65% !important;
+    }
+
+    .w-85 {
+      width: 85% !important;
+    }
+
+    .w-95 {
+      width: 95% !important;
+    }
+
+    @media (min-width: 576px) {
+      .mb-sm-6 {
+        margin-bottom: 4.5rem !important;
+      }
+
+      .py-sm-6 {
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.5rem !important;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .mb-md-6 {
+        margin-bottom: 4.5rem !important;
+      }
+
+      .py-md-6 {
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.5rem !important;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .mb-lg-6 {
+        margin-bottom: 4.5rem !important;
+      }
+
+      .py-lg-6 {
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.5rem !important;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .mb-xl-6 {
+        margin-bottom: 4.5rem !important;
+      }
+
+      .py-xl-6 {
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.5rem !important;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .mb-xxl-6 {
+        margin-bottom: 4.5rem !important;
+      }
+
+      .py-xxl-6 {
+        padding-top: 4.5rem !important;
+        padding-bottom: 4.5rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:admin@prxresearch.com">admin@prxresearch.com</a>
+        <i class="bi bi-phone"></i> 9727774428
+      </div>
+      <!-- <div class="d-none d-lg-flex social-links align-items-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            </div> -->
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo "><a href="index.html"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo "><img src="assets/img/prx-research-logo.webp" width="100%" alt=""
+          class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar nav ms-auto order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+
+          <li><a class="nav-link scrollto" href="about.html">About Us</a></li>
+          <li><a class="nav-link scrollto" href="sponsors.html">Sponsors and CRO’s</a></li>
+
+          <li><a class="nav-link scrollto" href="faq.html">FAQs</a></li>
+
+          <li><a class="nav-link scrollto" href="contact.html">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="mailto:admin@prxresearch.com" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make
+          an</span>
+        Appointment</a>
+
+    </div>
+  </header>
+  <!-- <img src="assets/img/aboutbg.jpeg" id="down3" width="100%" alt=""> -->
+  <img src="assets/img/z2.jpg" id="down3" width="100%" alt="">
+
+
+
+  <br>
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+
+        <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
+          <center>
+<br>
+            <b class="mt-5">PARTICIPATING IN A TRIAL
+              IS EASY</b>
+
+
+            <br><br>
+            <h1><b>How it Works</b></h1>
+          </center>
+        </div>
+
+
+
+        <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
+          <br>
+          <div class="clr" style="color: #166AB5;">
+            - Find A Clinical Trial
+          </div>
+<p id="textt4">
+          Getting started with a clinical trial is easy! We offer numerous clinical trials in different specialties.
+          Please contact us to see what we’re offering. We’ll ask you some questions to determine what studies you’re
+          eligible for, and if there’s a study you might be eligible for, we’ll schedule an appointment with one of our
+          physicians.</p>
+         
+          <div class="clr" style="color: #166AB5;">
+            - Physical Assessment</div>
+<p id="textt4">
+          Visit our site and get a complimentary physical exam. We’ll answer any questions you have about
+          participating in one of our clinical trials.</p>
+        
+          <div class="clr" style="color: #166AB5;">
+            - Start Participating</div>
+<p id="textt4">
+          Participating in the clinical trial can begin once you’ve been considered eligible and agree to
+          participate in the study procedures.</p>
+        </div>
+
+
+      </div>
+
+    </div>
+  </section>
+  <!-- End Features Section -->
+  <hr>
+
+
+
+  
+  <br>
+  <div class="section-title">
+    <h2>THERAPEUTIC AREAS OF <br>
+      CLINICAL TRIALS
+
+    </h2>
+
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;  ">
+          <img src="assets/img/cc.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">CLINICAL RESEARCH </h6>
+                <p>
+                Our team is committed to clinical research that tests the latest medical treatments, striving for
+                healthcare breakthroughs. We prioritize safety and integrity from hypothesis to trial completion, aiming
+                for innovations that enhance patient health.
+              </p>
+
+
+
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-4">
+        <div class="card"id="card123" style="width: 22rem;  ">
+          <img src="assets/img/ii.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">INTERNAL MEDICINE </h6>Internal medicine is the medical
+                specialty dealing with the prevention, diagnosis, and treatment of adult diseases.
+                Internists are skilled in the management of patients who have undifferentiated or
+                multi-system disease processes. 
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;  ">
+          <img src="assets/img/o.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">ORTHOPEDICS AND PAIN MANAGEMENT </h6>
+                PRX Research is at the forefront of clinical research, diligently testing new treatments to bring about
+                breakthroughs in patient care. We uphold the highest safety and ethical standards, ensuring that our
+                pioneering work consistently leads to improved health outcomes.
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+
+  </div>
+  <br><br>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;  ">
+          <img src="assets/img/pu.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">PULMONARY MEDICINE </h6>
+                At PRX Research, our Pulmonary Medicine division is dedicated to advancing the treatment of respiratory
+                diseases through clinical research. We are committed to uncovering new therapies that improve lung
+                health and patient well-being.
+
+
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;">
+          <img src="assets/img/heart.png" id="imgsm155" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">CARDIOLOGY </h6> Cardiology is a branch of medicine that deals with
+                disorders of the heart and the cardiovascular system. The field includes medical diagnosis and treatment
+                of congenital heart defects, coronary artery disease, heart failure, valvular heart disease and
+                electrophysiology.
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;">
+          <img src="assets/img/gi.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">GI AND HEPATOLOGY </h6>
+                At PRX Research, we lead in Gastrointestinal (GI) and Hepatology research. Our expert team is dedicated
+                to advancing GI and liver health through innovative treatments and diagnostics. Join us in improving
+                patient care in these vital medical fields.
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <br><br>
+
+
+
+
+  <br><br>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;">
+          <img src="assets/img/en.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">ENDOCRINOLOGY
+                </h6>
+                <p>PRX Research is a leader in Endocrinology research, dedicated to advancing knowledge and treatments
+                  for hormone-related disorders. Join us in improving patient care in this vital medical field. </p>
+              </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;  ">
+          <img src="assets/img/pp.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">PSYCHIATRY
+                </h6>Psychiatry is the medical specialty devoted to the diagnosis, prevention, and treatment of mental
+                disorders. These include various maladaptation related to mood, behavior, cognition, and perceptions
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;">
+          <img src="assets/img/nn.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">NEUROLOGY </h6> Neurology is a branch of medicine dealing with disorders of
+                the nervous system. Neurology deals with the diagnosis and treatment of all categories of conditions and
+                disease involving the brain, the spinal cord and the peripheral nerves. 
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+  </div>
+
+
+  <br>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;  ">
+          <img src="assets/img/023.png"  id="imgsm1" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">DEVICES </h6>
+                PRX Research leads in innovative medical devices. Our expert team is dedicated to creating cutting-edge
+                technologies that enhance patient care. Join us in shaping the future of healthcare through
+                groundbreaking device research.
+
+
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;">
+          <img src="assets/img/geriiii.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">GERIATRICS </h6>
+                PRX Research leads in Geriatrics research, dedicated to improving the well-being of older adults. Our expert team focuses on innovative solutions and tailored care for the unique needs of the elderly.
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4">
+        <div class="card" id="card123" style="width: 22rem;">
+          <img src="assets/img/ll.png" id="imgsm" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">
+              <center>
+                <h6 style="color: #01A6FF;">LAB COLLECTION STUDIES </h6> PRX Research excels in Lab Collection Studies, foundational for groundbreaking research. We meticulously gather and analyze data in controlled labs, contributing to advancements in medicine and technology.
+            </p>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Our Working Process</h2>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon"><i class="fas fa-user-md"></i></div>
+
+          <p class="description">Providing Physicians
+            from Varying Therapeutic
+            Areas to serve as Clinical
+            Research Investigators</p>
+        </div>
+        <div class="col-lg-3 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon"><i class="fas fa-database"></i></div>
+
+          <p class="description">Providing Access to
+            Insights on Real-Time
+            Data and Updates to
+            Ensure Compliance</p>
+        </div>
+        <div class="col-lg-3 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon"><i class="fas fa-users"></i></div>
+
+          <p class="description">Engaging The Local
+            Community, Physicians,
+            and Patients for Effective
+            and Robust Recruitment</p>
+        </div>
+        <div class="col-lg-3 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon"><i class="fas fa-server"></i></div>
+
+          <p class="description">Providing Infrastructure
+            and Expertise to Ensure
+            Better Data Quality in
+            Real Time</p>
+        </div>
+
+
+      </div>
+  </section><!-- End Services Section -->
+
+
+
+
+  <!--  -->
+  <section class="bg-light py-5 py-xl-6">
+    <div class="container mb-5 mb-md-6">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6 text-center">
+          <h2 class="mb-4 display-5" style="color: #1977CC;">Study Phases</h2>
+          <p class="text-secondary mb-4 mb-md-5">Clinical trials have four phases, or steps, in the clinical research
+            process. You may notice when you see a name of a clinical trial that it includes Phase I, II, III, or IV, or
+            it may be written as Phase 1, 2, 3, or 4. Here's what those phases mean:</p>
+          <hr class="w-50 mx-auto mb-0 text-secondary">
+        </div>
+      </div>
+    </div>
+    <div class="container overflow-hidden">
+      <div class="row justify-content-xl-center gy-3 gy-sm-4">
+        <div class="col-12 col-sm-6 col-xl-5">
+          
+          <div class="bg-white rounded shadow-sm p-3 p-md-4 p-xxl-5" id="box45">
+            
+            <h3 class="fw-bold mb-2" style="color: #1977CC;"><img src="assets/img/p1.png" width="25%" alt="">      Phase 1</h3>
+            
+            <p class="text-secondary mb-4" id="textt4">Researchers test a drug or treatment in a small group of people (20-100) for
+              the first time. The purpose is to study the drug or treatment to learn about safety and identify side
+              effects. </p>
+
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-5">
+          <div class="bg-white rounded shadow-sm p-3 p-md-4 p-xxl-5" id="box45">
+            <h3 class="fw-bold mb-2" style="color: #1977CC;">  <img src="assets/img/p2.png" width="25%" alt=""> Phase 2
+            </h3>
+            <p class="text-secondary  mb-4" id="textt4">The new drug or treatment is given to a larger group of people (100-300) to
+              determine its effectiveness and to further study its safety. <br><br>
+
+            </p>
+
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-5">
+          <div class="bg-white rounded shadow-sm p-3 p-md-4 p-xxl-5" id="box45">
+            <h3 class="fw-bold mb-2" style="color: #1977CC;"> <img src="assets/img/p3.png" width="25%" alt="">   Phase 3</h3>
+            <p class="text-secondary  mb-4" id="textt4">The new drug or treatment is given to large groups of people (1,000-3,000)
+              to confirm its effectiveness, monitor side effects, compare it with standard or similar treatments, and
+              collect information that will allow the new drug or treatment to be used safely. </p>
+
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-xl-5">
+          <div class="bg-white rounded shadow-sm p-3 p-md-4 p-xxl-5" id="box45">
+            <h3 class="fw-bold mb-2" style="color: #1977CC;"> <img src="assets/img/p4.png" width="25%" alt="">  Phase 4</h3>
+            <p class="text-secondary  mb-4" id="textt4">After a drug is approved by the FDA and made available to the public,
+              researchers track its safety in the general population, seeking more information about a drug or
+              treatment's benefits, and optimal use.</p>
+
+          </div>
+        </div>
+      </div>
+  </section>
+
+ 
+  <br><br>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3>PRX Research</h3>
+            <p>
+              1011 N. Galloway Avenue <br>
+              Mesquite, TX, 75149 <br><br>
+              <strong>Phone:</strong><br> 9727774428<br>
+              <strong>Email:</strong> admin@prxresearch.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="sponsors.html">Sponsors and CRO’s</a></li>
+            
+              <li><i class="bx bx-chevron-right"></i> <a href="faq.html">FAQs</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- <div class="col-lg-3 col-md-6 footer-links">
+            <h4></h4>
+            <ul>
+             
+            </ul>
+          </div> -->
+
+          <div class="col-lg-5 col-md-6 footer-newsletter">
+            <h4>Schedule Your Visit to PRX Research</h4>
+            <p>If you'd like to make an appointment at PRX Research, simply click the "Make an Appointment" button
+              below, and our team will assist you promptly.
+
+            </p>
+
+
+            <a href="mailto:admin@prxresearch.com" class="appointment-btn1 scrollto"><span
+                class="d-none d-md-inline">Make an</span>
+              Appointment</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>PRX Research</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/PRX Research-free-medical-bootstrap-theme/ -->
+
+        </div>
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+
+  <div id="preloader1"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

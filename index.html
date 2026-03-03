@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PRX Research</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/fav.jpg" rel="icon">
+  <link href="assets/img/fav.jpg" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Custom Animation CSS -->
+  <style>
+    /* Hero Canvas for Three.js */
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Animation Classes */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .gsap-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* Navbar scroll effect */
+    .navbar-scrolled {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Button hover effects */
+    .btn-animate {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-animate::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-animate:hover::before {
+      left: 100%;
+    }
+
+    /* Card hover effects */
+    .card-animate {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-animate:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(25, 119, 204, 0.2);
+    }
+
+    /* Icon box animation */
+    .icon-box-animate {
+      transition: all 0.3s ease;
+    }
+
+    .icon-box-animate:hover {
+      transform: scale(1.05);
+    }
+
+    /* Preloader enhanced */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99999;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #preloader:before {
+      content: '';
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+      border: 4px solid #1977cc;
+      border-top-color: transparent;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: animate-preloader 1s linear infinite;
+    }
+
+    @keyframes animate-preloader {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Section divider wave */
+    .section-divider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .section-divider svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 60px;
+    }
+
+    .section-divider .shape-fill {
+      fill: #ffffff;
+    }
+
+    /* Text reveal animation */
+    .text-reveal {
+      overflow: hidden;
+    }
+
+    .text-reveal span {
+      display: inline-block;
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Pulse animation for icons */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Stagger animation delays */
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Preloader removed - animations will still work -->
+  
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-clock"></i>&nbsp; Monday - Thursday 0900 - 0430 - Friday 0900-1200
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> &nbsp;Call us now 9727774428
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo "><a href="index.html"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo "><img src="assets/img/prx-research-logo.webp" width="100%" alt=""
+          class="img-fluid"></a>
+
+      <nav id="navbar" class="navbar nav ms-auto order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+
+          <li><a class="nav-link scrollto" href="about.html">About Us</a></li>
+          <li><a class="nav-link scrollto" href="sponsors.html">Sponsors and CRO’s</a></li>
+
+          <li><a class="nav-link scrollto" href="faq.html">FAQs</a></li>
+
+          <li><a class="nav-link scrollto" href="contact.html">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="mailto:admin@prxresearch.com" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make
+          an</span>
+        Appointment</a>
+
+    </div>
+  </header>
+
+  <!-- End Header -->
+  <br><br><br><br>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h6 class="animate__animated animate__fadeInUp">ENSURING YOU THE BEST RESULTS</h6>
+      <h4 class="animate__animated animate__fadeInUp animate__delay-1">WELCOME TO <span>PRX Research</span></h4>
+      <p class="animate__animated animate__fadeInUp animate__delay-2">PRX is a research facility designed to meet the growing medical needs of North Texas residents that offer a comprehensive range of health services for acute and emergency situations.</p>
+      <button type="submit" id="tt" class="animate__animated animate__fadeInUp animate__delay-3"> <a href="about.html" style="color: white;">
+          Learn More </a></button>
+    </div>
+    <video id="hero-video" autoplay loop muted playsinline>
+      <source src="assets/img/prxv2.mp4" type="video/mp4">
+    </video>
+  </section>
+  
+
+
+
+
+<!--   
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h6>ENSURING YOU THE BEST RESULTS</h6>
+      <h1> WELCOME TO PRX Research</h1>
+      <h5>PRX is a research facility designed to meet the growing medical needs of <br> North Texas residents
+        that offer a comprehensive range of health services <br> for acute and emergency situations.</h5>
+      <a href="about.html" class="btn-get-started scrollto">Learn More</a>
+    </div>
+  </section> -->
+
+
+
+
+
+  <!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="content">
+
+              <h3 id="dow">WHO WE ARE</h3>
+              <p>
+                We leverage cutting-edge research technologies and practices to stay at the forefront of
+                medicine.
+                <br> <br>
+                PRX is committed to accelerating the translation of biomedical discoveries into breakthrough healthcare
+                solutions. Our team is here to collaborate on your breakthrough and leverage our expertise to turn
+                research into reality.
+              </p>
+              <div class="text-center">
+                <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-3 d-flex align-items-stretch">
+
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <br>
+                    <i class="fa-solid fa-users"></i>
+                    <h4>2000+
+                      <br>
+                      <b>Patients</b>
+                      <br><br>
+                      <p id="downt">Delivering exceptional clinical research options to over 2000+ patients.</p>
+                    </h4>
+
+
+                  </div>
+                </div>
+                <div class="col-xl-3 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <br>
+                    <i class="fas fa-user-tie"></i>
+                    <h4>10+
+                      <br>
+                      <b>Expert Staff</b>
+                      <br><br>
+                      <p id="downt">Supported by a dedicated team of 10+ expert clinical research staff.</p>
+                    </h4>
+
+                  </div>
+                </div>
+
+                <div class="col-xl-3 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <br>
+                    <i class="fas fa-flask"></i>
+                    <h4>100+
+                      <br>
+                      <b>Clinical Trials</b>
+                      <br><br>
+                      <p id="downt">Conducting 100+ clinical trials with precision, advancing healthcare.</p>
+                    </h4>
+
+
+                  </div>
+                </div>
+
+                <div class="col-xl-3 d-flex align-items-stretch">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <br>
+                    <i class="fas fa-medal"></i>
+                    <h4> <b>25+
+                        <br>years of Combined Clinical Experience </b>
+                      <br><br>
+                      <p id="downt1">Advancing HealthCare Every Day!</p>
+                    </h4>
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
+
+          </div>
+
+          <div
+            class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+            <h3>Why Clinical Research? </h3>
+            <h6> <b> The Gateway to Better Health </b> </h6>
+            <p id="textt2">Clinical research is crucial because it's the path to medical advancements. It tests new treatments,
+              ensuring they are safe and effective. Without it, medical progress stalls, keeping us from breakthrough
+              therapies. In short, clinical research is the bridge from great ideas to better health for everyone.</p>
+
+            <div class="icon-box">
+              <h3>What To Expect</h3>
+              <div class="icon" style="background-color: #1977CC;"><svg xmlns="http://www.w3.org/2000/svg" width="14"
+                  height="14" viewBox="0 0 12 12" style="color: white;">
+                  <path fill="currentColor"
+                    d="M5 2a1 1 0 0 0-1 1v1H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H8V3a1 1 0 0 0-1-1H5Z" />
+                </svg>
+              </div>
+              <h4 class="title"><a href="side13">Initial Consultation: </a></h4>
+              <p class="description" id="textt3">Your journey starts with an initial consultation. Here, you will meet
+                the research
+                team, discuss your medical history, and learn about the study's purpose. It's a chance to ask questions
+                and understand your role.
+
+              </p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon" style="background-color: #1977CC;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+                  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    style="color: white;">
+                    <path
+                      d="M20 12V5.749a.6.6 0 0 0-.176-.425l-3.148-3.148A.6.6 0 0 0 16.252 2H4.6a.6.6 0 0 0-.6.6v18.8a.6.6 0 0 0 .6.6H11M8 10h8M8 6h4m-4 8h3m6.954 2.94l1-1a1.121 1.121 0 0 1 1.586 0v0a1.121 1.121 0 0 1 0 1.585l-1 1m-1.586-1.586l-2.991 2.991a1 1 0 0 0-.28.553l-.244 1.557l1.557-.243a1 1 0 0 0 .553-.28l2.99-2.992m-1.585-1.586l1.586 1.586" />
+                    <path d="M16 2v3.4a.6.6 0 0 0 .6.6H20" />
+                  </g>
+                </svg>
+
+              </div>
+              <h4 class="title"><a href="">Assessment and Eligibility:</a></h4>
+              <p class="description" id="textt3">Next up, there is a thorough assessment. The team will check if you are
+                a fit for
+                the
+                study based on certain criteria. This step ensures the research is relevant and safe for you.</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon" style="background-color: #1977CC;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20"
+                  style="color: white;">
+                  <path fill="currentColor" d="M10 12.5c-5.92 0-9 3.5-9 5.5v1h18v-1c0-2-3.08-5.5-9-5.5z" />
+                  <circle cx="10" cy="6" r="5" fill="currentColor" />
+                </svg>
+
+              </div>
+              <h4 class="title"><a href="">Active Participation:</a></h4>
+              <p class="description" id="textt3">Finally, active participation. This can range from taking new
+                treatments to regular
+                health check-ups. you will be closely monitored, and your feedback will be invaluable. Remember, you are
+                contributing to potential medical breakthroughs!
+              </p>
+            </div>
+
+            <!-- <h3>Why Clinical Research? </h3>
+            <h6> <b> The Gateway to Better Health </b> </h6>
+            <p id="textt2">Clinical research is crucial because it's the path to medical advancements. It tests new treatments,
+              ensuring they are safe and effective. Without it, medical progress stalls, keeping us from breakthrough
+              therapies. In short, clinical research is the bridge from great ideas to better health for everyone.</p>
+            <br>
+            <h3>What To Expect
+            </h3>
+
+
+            <div class="icon-box">
+              <div class="icon" style="background-color: #1977CC;"><svg xmlns="http://www.w3.org/2000/svg" width="34"
+                  height="34" viewBox="0 0 12 12" style="color: white;">
+                  <path fill="currentColor"
+                    d="M5 2a1 1 0 0 0-1 1v1H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H8V3a1 1 0 0 0-1-1H5Z" />
+                </svg>
+              </div>
+              <h4 class="title"><a href="">Initial Consultation: </a></h4>
+              <p class="description" id="textt3">Your journey starts with an initial consultation. Here, you will meet the research
+                team, discuss your medical history, and learn about the study's purpose. It's a chance to ask questions
+                and understand your role.
+
+              </p>
+            </div>
+
+          
+
+            -->
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <!-- <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="fas fa-user-md"></i>
+              <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Doctors</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="far fa-hospital"></i>
+              <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Sub-Specialties</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-flask"></i>
+              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Research Labs</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+              <i class="fas fa-award"></i>
+              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Awards</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Counts Section -->
+
+
+
+
+
+
+
+    <br>
+    <div class="section-title">
+      <h2>Our Satisfied Partners</h2>
+
+    </div>
+
+    <div class="slider">
+      <div class="slide-track">
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/1.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/2.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/3.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/4.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/5.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/6.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/7.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/8.png" alt="">
+        </div>
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/9.png" alt="">
+        </div>
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/10.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/11.png" alt="">
+        </div>
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/12.png" alt="">
+        </div>
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/13.png" alt="">
+        </div>
+
+
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/14.png" alt="">
+        </div>
+
+
+
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/pic png/15.png" alt="">
+        </div>
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/a.png" alt="">
+        </div>
+
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/b.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/c.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/d.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/e.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/f.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/g.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/h.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/i.png" alt="">
+        </div>
+        <div class="slide" id="sliderrr1">
+          <img src="assets/img/j.png" alt="">
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- ======= About Us Section ======= -->
+    <section id="" class="about1">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2> Our Services </h2>
+          <p id="textt2">
+            PRX Clinical Research,
+            our mission is to translate biomedical discoveries into cutting-edge healthcare solutions. With both
+            inpatient and outpatient capabilities, a centralized IRB, and swift regulatory approvals, we are dedicated
+            to pioneering clinical research to advance healthcare, expand disease understanding, and deliver meaningful
+            results.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+
+            <img src="assets/img/ser.jpeg" class="img-fluid" id="down1" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+
+
+            <ul style=" list-style-type: none; ">
+              <br>
+              <li id="textt2"><i class="bi bi-check-circle"></i>
+
+                PRX Research is located within a 202-bed hospital designed to offer a comprehensive
+                range of health services for acute and emergencies, including a 24-hour Emergency
+                Room; critical care; medical, surgical, stroke, imaging, full-service laboratory,
+                cardiac services, and diagnostic services.
+              </li>
+
+              <br>
+              <li id="textt2"><i class="bi bi-check-circle"></i>
+
+                PRX Research is committed to offering unparalleled expertise and ensuring the
+                translation of biomedical discoveries into cutting-edge healthcare solutions. PRX has
+                inpatient and outpatient capabilities and utilizes a central IRB with quick regulatory,
+                contracts, budgeting approvals, and recruitment timelines.
+
+              </li>
+
+              <br>
+
+
+              <li id="textt2"><i class="bi bi-check-circle"></i>
+
+                Clinical research is the vital engine propelling healthcare advancements. Through
+                meticulous investigation, it pioneers new treatments, expands disease understanding,
+                and ensures personalized care. Our experienced team is here to collaborate on your
+                breakthrough and leverage our expertise to turn research into reality, delivering results
+                that matter.
+
+
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+
+
+    <!-- ======= Counts Section ======= -->
+    <!-- <section id="" class="counts" style="background-color: white;">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+
+
+
+
+
+
+
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- End Counts Section -->
+
+
+
+
+
+
+
+
+    <!-- ======= Appointment Section ======= -->
+    <section id="appointment" class="appointment section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Make an Appointment</h2>
+          <p id="textt2">Embarking on your journey to better health starts with a single step. By scheduling an
+            appointment with our
+            specialized team, you are taking a decisive action towards improved well-being. Our expert care in obesity
+            and Weight Loss, clinical research and lab is tailored to your unique needs. Let us be your partners in
+            health – your path to a healthier, more vibrant life is within reach. Schedule your appointment now and
+            begin the transformation.</p>
+        </div>
+
+        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+          <!-- <div class="row">
+            <div class="col-md-4 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4"
+                data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone"
+                data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+          </div> -->
+          <!-- <div class="row">
+            <div class="col-md-4 form-group mt-3">
+              <input type="datetime" name="date" class="form-control datepicker" id="date"
+                placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="department" id="department" class="form-select">
+                <option value="">Select Department</option>
+                <option value="Department 1">Department 1</option>
+                <option value="Department 2">Department 2</option>
+                <option value="Department 3">Department 3</option>
+              </select>
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="doctor" id="doctor" class="form-select">
+                <option value="">Select Doctor</option>
+                <option value="Doctor 1">Doctor 1</option>
+                <option value="Doctor 2">Doctor 2</option>
+                <option value="Doctor 3">Doctor 3</option>
+              </select>
+              <div class="validate"></div>
+            </div>
+          </div> -->
+
+          <!-- <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+          </div> -->
+          <div class="text-center"><button type="submit"> <a href="mailto:admin@prxresearch.com" style="color: white;">
+                Make an Appointment </a></button></div>
+        </form>
+
+      </div>
+    </section><!-- End Appointment Section -->
+
+    <!-- ======= Departments Section ======= -->
+    <section id="Sub-Specialties" class="departments">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Our Sub-Specialties</h2>
+          <h6> <b> Explore Our Centers of Excellence</b></h6>
+          <p id="textt2"> Dive into our specialized Sub-Specialties where cutting-edge care meets personalized treatment
+            in obesity
+            and
+            Weight Loss, clinical research and lab. Your journey towards better health starts here, with our dedicated
+            team leading the way.</p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">CLINICAL RESEARCH</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Internal Medicine/ Primary Care</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Orthopedics and Pain Management</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pulmonary Medicine</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Cardiology</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-6">Gastroenterology</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-7">Endocrinology</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-8">Psychiatry</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-9">Neurology</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-10">Devices</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-11">Geriatrics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-12">Lab Collection Studies</a>
+              </li>
+
+
+            </ul>
+          </div>
+          <div class="col-lg-9">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row gy-4" id="textt4">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Clinical Research</h3>
+                    <p class="fst-italic">Clinical research is the vital engine propelling healthcare advancements.
+                      Through meticulous Investigation, it pioneers new treatments,
+                      expands disease understanding, and ensures personalized care. Conducted with unwavering ethical
+                      standards, clinical research safeguards participant welfare and shapes healthcare practices for a
+                      brighter, healthier future.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/cc.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <div class="row gy-4" id="r2">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Internal Medicine/ Primary Care</h3>
+                    <p class="fst-italic">Internal medicine is the medical specialty dealing with the prevention,
+                      diagnosis, and treatment of adult diseases. Internists are skilled in the management of patients
+                      who have undifferentiated or multi-system
+                      disease processes. Internists care for hospitalized and ambulatory patients and may play a major
+                      role in teaching and research.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/ii.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab-3">
+                <div class="row gy-4" id="r3">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Orthopedics and Pain Management</h3>
+                    <p class="fst-italic">Experience relief and renewed mobility with our comprehensive orthopedic and
+                      pain management services. Our expert team of orthopedic specialists employs cutting-edge
+                      treatments to address musculoskeletal conditions, fractures, and joint issues. From precise
+                      diagnostics to personalized pain management plans, we are dedicated to restoring your quality of
+                      life and helping you move comfortably.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/o.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="tab-pane" id="tab-4">
+                <div class="row gy-4" id="r4">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Pulmonary Medicine</h3>
+                    <p class="fst-italic">PULMONARY MEDICINE Pulmonology is considered a branch of internal medicine,
+                      and is related to intensive care medicine. Pulmonology often involves managing patients who need
+                      life support and mechanical ventilation.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/pp.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="tab-pane" id="tab-5">
+                <div class="row gy-4" id="r5">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Cardiology</h3>
+                    <p class="fst-italic">Cardiology is a branch of medicine that deals with disorders of the heart and
+                      the cardiovascular system. The field includes medical diagnosis and treatment of congenital heart
+                      defects, coronary artery disease, heart failure,
+                      valvular heart disease and
+                      electrophysiology.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/heart.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="tab-pane" id="tab-6">
+                <div class="row gy-4" id="r6">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Gastroenterology</h3>
+                    <p class="fst-italic">The gastrointestinal system includ the mouth, pharynx (throat), esophagus,
+                      stomach, small intestine, large intestine, rectum, and anus. also includes the salivary glands,
+                      liver, gallbladder, and pancreas, which that help the body digest food and liquids.
+                    </p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/gi.jpeg" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="tab-pane" id="tab-7">
+                <div class="row gy-4" id="r7">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Endocrinology</h3>
+                    <p class="fst-italic">ENDOCRINE DISORDER an endocrine disorder results from th improper function of
+                      the endocrine system, which includes the glands the secrete hormones, the receptors that respond
+                      to hormones and the organi that are directly impacted by hormones. At any one of these points
+                      dysfunction can occur and cause wide-ranging effects on the body.
+                    </p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/en.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="tab-pane" id="tab-8">
+                <div class="row gy-4" id="r8">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Psychiatry</h3>
+                    <p class="fst-italic">Psychiatry is the medical specialty devoted to the diagnosis, prevention, and
+                      treatment of mental disorders. These include various maladaptation plated to mood, behavior,
+                      cognition, and perceptions.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/pp.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab-9">
+                <div class="row gy-4" id="r9">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Neurology</h3>
+                    <p class="fst-italic">Unlock the mysteries of your nervous system with our expert neurology
+                      services. Our team of skilled neurologists is committed to diagnosing and treating a wide array of
+                      neurological conditions, from headaches and seizures to neurodegenerative disorders. Utilizing
+                      state-of-the-art diagnostics and innovative treatments, we strive to provide personalized care
+                      that addresses the unique needs of each patient. Trust us to navigate the complexities of
+                      neurological health, working towards enhancing your well-being and optimizing neurological
+                      function.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/nn.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab-10">
+                <div class="row gy-4" id="r10">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Devices</h3>
+                    <p class="fst-italic">Experience the future of healthcare with our cutting-edge medical devices. Our
+                      advanced technologies are designed to enhance diagnostics, monitoring, and treatment, ensuring
+                      precision and efficiency in patient care. From state-of-the-art imaging devices to innovative
+                      therapeutic tools, we are at the forefront of medical technology. Trust in our commitment to
+                      providing healthcare solutions that integrate seamlessly into the evolving landscape of modern
+                      medicine, promoting better outcomes and improving the overall patient experience.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/023.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab-11">
+                <div class="row gy-4" id="r11">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Geriatrics</h3>
+                    <p class="fst-italic">Embrace the golden years with our specialized geriatric care. Our dedicated
+                      team of healthcare professionals focuses on the unique needs of older adults, offering
+                      comprehensive geriatric services to promote health, independence, and quality of life. From
+                      preventive care to managing chronic conditions, we prioritize the well-being of seniors through
+                      personalized healthcare plans. With a compassionate approach, we strive to address the physical,
+                      emotional, and social aspects of aging, ensuring that each individual receives the tailored
+                      support they need to age gracefully and maintain an active, fulfilling lifestyle.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/geriiii.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="tab-12">
+                <div class="row gy-4" id="r12">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Lab Collection Studies</h3>
+                    <p class="fst-italic">Participate in advancing medical knowledge through our lab collection studies.
+                      Joining our research initiatives means contributing to groundbreaking discoveries in healthcare.
+                      We conduct thorough and ethical studies, collecting valuable data that fuels progress in
+                      diagnostics, treatments, and overall patient care. Your involvement in our lab collection studies
+                      not only helps shape the future of medicine but also provides you with access to cutting-edge
+                      diagnostics and potential advancements in healthcare. Be a part of the journey towards better
+                      health outcomes by participating in our transformative research endeavors.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/ll.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Departments Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <b> Reach Out for Personalized Care</b>
+          <p id="textt4"> <br><br> If you have any questions or need further information
+            about our services, don't hesitate to contact us. Our dedicated team is ready to provide you with the
+            assistance and support you need. Whether it's a query about our Sub-Specialties, scheduling an appointment,
+            or
+            seeking general information, we're here to help. Your health and satisfaction are our top priorities. Get in
+            touch today for a more informed and healthier tomorrow.</p>
+        </div>
+      </div>
+
+      <div>
+
+        <a href="https://www.google.com/maps/place/1011%20N%20Galloway%20Ave,%20Mesquite,%20TX%2075149,%20USA"
+          target="_blank">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.520414742655!2d-96.60302222591133!3d32.77845778391519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864ea5a26213fadd%3A0x29323264f04d05d2!2s1011%20N%20Galloway%20Ave%2C%20Mesquite%2C%20TX%2075149%2C%20USA!5e0!3m2!1sen!2s!4v1700766161493!5m2!1sen!2s"
+            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </a>
+
+
+      </div>
+
+
+
+
+
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h3>PRX Research</h3>
+            <p>
+              1011 N. Galloway Avenue <br>
+              Mesquite, TX, 75149 <br><br>
+              <strong>Phone:</strong><br> 9727774428<br>
+              <strong>Email:</strong> admin@prxresearch.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="sponsors.html">Sponsors and CRO’s</a></li>
+
+              <li><i class="bx bx-chevron-right"></i> <a href="faq.html">FAQs</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- <div class="col-lg-3 col-md-6 footer-links">
+            <h4></h4>
+            <ul>
+             
+            </ul>
+          </div> -->
+
+          <div class="col-lg-5 col-md-6 footer-newsletter">
+            <h4>Schedule Your Visit to PRX Research</h4>
+            <p id="textt4">If you'd like to make an appointment at PRX Research, simply click the "Make an Appointment"
+              button
+              below, and our team will assist you promptly.
+
+            </p>
+
+
+            <a href="mailto:admin@prxresearch.com" class="appointment-btn1 scrollto"><span
+                class="d-none d-md-inline">Make an</span>
+              Appointment</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>PRX Research</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/PRX Research-free-medical-bootstrap-theme/ -->
+
+        </div>
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader1"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
