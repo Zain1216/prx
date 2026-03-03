@@ -117,11 +117,13 @@
         if (selectTopbar) {
           selectTopbar.classList.add('topbar-scrolled')
         }
+        document.body.classList.add('topbar-scrolled')
       } else {
         selectHeader.classList.remove('header-scrolled')
         if (selectTopbar) {
           selectTopbar.classList.remove('topbar-scrolled')
         }
+        document.body.classList.remove('topbar-scrolled')
       }
     }
     window.addEventListener('load', headerScrolled)
