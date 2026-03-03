@@ -4,6 +4,8 @@
 - [x] 1. Add GSAP, Three.js, and Lenis CDN links to index.html
 - [x] 2. Add CDN links to about.html
 - [x] 3. Add CDN links to contact.html
+- [x] 4. Add CDN links to faq.html
+- [x] 5. Add CDN links to sponsors.html
 
 ## Phase 2: Core JavaScript Animations
 - [x] 1. Create main.js with GSAP + Three.js animations
