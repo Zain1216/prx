@@ -81,12 +81,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar {
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .navbar ul {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar li {
+  position: relative;
 }
 
 .navbar a {
@@ -96,6 +105,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 30px;
   font-size: 14px;
   transition: all 0.3s ease;
+  display: block;
 }
 
 .navbar a:hover, 
@@ -103,6 +113,52 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--white);
   background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
   box-shadow: 0 4px 15px rgba(25, 119, 204, 0.3);
+}
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 1001;
+    padding: 60px 20px 20px;
+  }
+  
+  .navbar.active {
+    right: 0;
+  }
+  
+  .navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar li {
+    width: 100%;
+  }
+  
+  .navbar a {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
 .appointment-btn {
