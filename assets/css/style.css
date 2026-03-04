@@ -942,6 +942,7 @@ section {
   font-weight: 500;
   text-decoration: none;
   border-radius: 5px;
+  font-family: inherit;
 }
 
 .faq-list li a:hover {
@@ -953,6 +954,46 @@ section {
   float: right;
   font-size: 18px;
   line-height: 20px;
+}
+
+/* FAQ Icons - Fallback to Font Awesome */
+.faq-list .icon-show {
+  float: right;
+  margin-left: 10px;
+  color: #1977cc;
+}
+
+.faq-list .icon-close {
+  float: right;
+  margin-left: 10px;
+  color: #1977cc;
+}
+
+.faq-list li a.collapsed .icon-show {
+  display: inline;
+}
+
+.faq-list li a.collapsed .icon-close {
+  display: none;
+}
+
+.faq-list li a .icon-show {
+  display: none;
+}
+
+.faq-list li a .icon-close {
+  display: inline;
+}
+
+.faq-list li a.collapsed .icon-close {
+  display: none;
+}
+
+/* FAQ Question Icon */
+.faq-list > ul > li > i {
+  float: left;
+  margin-right: 10px;
+  margin-top: 2px;
 }
 
 .faq-list li .collapse {
