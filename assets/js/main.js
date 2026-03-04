@@ -741,6 +741,52 @@
     });
   }
 
+  // Form submit handler for contact form
+  const contactForms = document.querySelectorAll('.php-email-form');
+  contactForms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const loading = this.querySelector('.loading');
+      const errorMessage = this.querySelector('.error-message');
+      const sentMessage = this.querySelector('.sent-message');
+      
+      // Hide all messages first
+      if (loading) loading.style.display = 'none';
+      if (errorMessage) errorMessage.style.display = 'none';
+      if (sentMessage) sentMessage.style.display = 'none';
+      
+      // Show loading
+      if (loading) {
+        loading.style.display = 'block';
+        loading.classList.add('show');
+      }
+      
+      // Simulate form submission (actual submission happens via formsubmit.co)
+      setTimeout(() => {
+        // Hide loading
+        if (loading) loading.style.display = 'none';
+        
+        // Show success message
+        if (sentMessage) {
+          sentMessage.style.display = 'block';
+          sentMessage.classList.add('show');
+        }
+        
+        // Reset form
+        this.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          if (sentMessage) {
+            sentMessage.style.display = 'none';
+            sentMessage.classList.remove('show');
+          }
+        }, 5000);
+      }, 1500);
+    });
+  });
+
   // Initialize all scroll animations
   if (typeof ScrollTrigger !== 'undefined') {
     ScrollTrigger.refresh();
@@ -749,4 +795,5 @@
   }); // End of window.load event listener
 
 })();
+
 
