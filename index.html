@@ -5,16 +5,16 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>PRX Research</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>PRX Research - Clinical Trials & Research</title>
+  <meta content="PRX Research - Leading clinical research facility in North Texas offering comprehensive health services and clinical trials." name="description">
+  <meta content="clinical research, clinical trials, medical research, Mesquite TX, health services" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/fav.jpg" rel="icon">
   <link href="assets/img/fav.jpg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -33,108 +33,58 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   
-  <!-- Three.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
   <!-- Lenis Smooth Scroll -->
   <script src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
-
-  <style>
-    /* Hero Canvas for Three.js */
-    #hero-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-    .gsap-reveal { opacity: 0; transform: translateY(30px); }
-    .navbar-scrolled {
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.95) !important;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
-    }
-    .btn-animate {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .btn-animate::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-    .btn-animate:hover::before { left: 100%; }
-    .card-animate { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card-animate:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(25, 119, 204, 0.2); }
-    .icon-box-animate { transition: all 0.3s ease; }
-    .icon-box-animate:hover { transform: scale(1.05); }
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 99999;
-      overflow: hidden;
-      background: #fff;
-    }
-    #preloader:before {
-      content: '';
-      position: fixed;
-      top: calc(50% - 30px);
-      left: calc(50% - 30px);
-      border: 4px solid #1977cc;
-      border-top-color: transparent;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: animate-preloader 1s linear infinite;
-    }
-    @keyframes animate-preloader { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .float-animation { animation: float 3s ease-in-out infinite; }
-  </style>
 </head>
 
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
+  <div id="topbar" class="d-flex align-items-center" style="background: #0F172A; position: fixed; top: 0; width: 100%; z-index: 1002;">
     <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="align-items-center d-none d-md-flex">
-        <i class="bi bi-clock"></i>&nbsp; Monday - Thursday 0900 - 0430 - Friday 0900-1200
+      <div class="align-items-center d-none d-md-flex" style="color: rgba(255,255,255,0.85); font-size: 12px;">
+        <i class="bi bi-clock" style="color: #0D9488;"></i>&nbsp; Monday - Thursday 0900 - 0430 - Friday 0900-1200
       </div>
-      <div class="d-flex align-items-center">
-        <i class="bi bi-phone"></i> &nbsp;Call us now 9727774428
+      <div class="d-flex align-items-center" style="color: rgba(255,255,255,0.85); font-size: 12px;">
+        <i class="bi bi-phone" style="color: #0D9488;"></i> &nbsp;Call us now 9727774428
       </div>
     </div>
   </div>
 
-
-    <div id="Navbar"></div>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-      $(function() {
-        $("#Navbar").load("navbar.html");
-      });
-      </script>
-
-  
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo me-auto">
+        <img src="assets/img/prx-research-logo.webp" width="100" alt="" class="img-fluid">
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="about.html">About Us</a></li>
+          <li><a class="nav-link scrollto" href="sponsors.html">Sponsors</a></li>
+          <li><a class="nav-link scrollto" href="faq.html">FAQs</a></li>
+          <li><a class="nav-link scrollto" href="contact.html">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <a href="mailto:admin@prxresearch.com" class="appointment-btn scrollto">Appointment</a>
+    </div>
+  </header>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
+    <!-- Floating Elements -->
+    <div class="floating-element floating-element-1"></div>
+    <div class="floating-element floating-element-2"></div>
+    <div class="floating-element floating-element-3"></div>
+    
     <div class="container">
-      <h6 class="animate__animated animate__fadeInUp">ENSURING YOU THE BEST RESULTS</h6>
-      <h4 class="animate__animated animate__fadeInUp animate__delay-1">WELCOME TO <span>PRX Research</span></h4>
+      <h6>ADVANCING HEALTHCARE THROUGH INNOVATION</h6>
+      <h4 class="animate__animated animate__fadeInUp">WELCOME TO <span>PRX Research</span></h4>
       <p class="animate__animated animate__fadeInUp animate__delay-2">PRX is a research facility designed to meet the growing medical needs of North Texas residents that offer a comprehensive range of health services for acute and emergency situations.</p>
-      <button type="submit" id="tt" class="animate__animated animate__fadeInUp animate__delay-3"> <a href="about.html" style="color: white;">Learn More</a></button>
+      <button type="submit" id="tt" class="animate__animated animate__fadeInUp animate__delay-3"> 
+        <a href="about.html" style="color: white;">Learn More</a>
+      </button>
     </div>
     <video id="hero-video" autoplay loop muted playsinline>
       <source src="assets/img/prxv2.mp4" type="video/mp4">
@@ -161,25 +111,29 @@
                 <div class="col-xl-3 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="fa-solid fa-users"></i>
-                    <h4>2000+<br><b>Patients</b><br><br><p id="downt">Delivering exceptional clinical research options to over 2000+ patients.</p></h4>
+                    <h4><span class="stats-number">2000+</span><br><b>Patients</b></h4>
+                    <p id="downt">Delivering exceptional clinical research options to over 2000+ patients.</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="fas fa-user-tie"></i>
-                    <h4>10+<br><b>Expert Staff</b><br><br><p id="downt">Supported by a dedicated team of 10+ expert clinical research staff.</p></h4>
+                    <h4><span class="stats-number">10+</span><br><b>Expert Staff</b></h4>
+                    <p id="downt">Supported by a dedicated team of 10+ expert clinical research staff.</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="fas fa-flask"></i>
-                    <h4>100+<br><b>Clinical Trials</b><br><br><p id="downt">Conducting 100+ clinical trials with precision, advancing healthcare.</p></h4>
+                    <h4><span class="stats-number">100+</span><br><b>Clinical Trials</b></h4>
+                    <p id="downt">Conducting 100+ clinical trials with precision, advancing healthcare.</p>
                   </div>
                 </div>
                 <div class="col-xl-3 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="fas fa-medal"></i>
-                    <h4><b>25+<br>years of Combined Clinical Experience</b><br><br><p id="downt1">Advancing HealthCare Every Day!</p></h4>
+                    <h4><span class="stats-number">25+</span><br><b>Years Experience</b></h4>
+                    <p id="downt1">Combined Clinical Experience - Advancing HealthCare Every Day!</p>
                   </div>
                 </div>
               </div>
@@ -198,23 +152,22 @@
             <h6><b>The Gateway to Better Health</b></h6>
             <p id="textt2">Clinical research is crucial because it's the path to medical advancements. It tests new treatments, ensuring they are safe and effective.</p>
             <div class="icon-box">
-              <h3>What To Expect</h3>
-              <div class="icon" style="background-color: #1977CC;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12" style="color: white;"><path fill="currentColor" d="M5 2a1 1 0 0 0-1 1v1H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h1a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H8V3a1 1 0 0 0-1-1H5Z"></path></svg>
+              <div class="icon">
+                <i class="fas fa-calendar-check"></i>
               </div>
               <h4 class="title"><a href="">Initial Consultation:</a></h4>
               <p class="description" id="textt3">Your journey starts with an initial consultation. Here, you will meet the research team, discuss your medical history, and learn about the study's purpose.</p>
             </div>
             <div class="icon-box">
-              <div class="icon" style="background-color: #1977CC;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" style="color: white;"><path d="M20 12V5.749a.6.6 0 0 0-.176-.425l-3.148-3.148A.6.6 0 0 0 16.252 2H4.6a.6.6 0 0 0-.6.6v18.8a.6.6 0 0 0 .6.6H11M8 10h8M8 6h4m-4 8h3"></path></g></svg>
+              <div class="icon">
+                <i class="fas fa-clipboard-check"></i>
               </div>
               <h4 class="title"><a href="">Assessment and Eligibility:</a></h4>
               <p class="description" id="textt3">Next up, there is a thorough assessment. The team will check if you are a fit for the study based on certain criteria.</p>
             </div>
             <div class="icon-box">
-              <div class="icon" style="background-color: #1977CC;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 20 20" style="color: white;"><path fill="currentColor" d="M10 12.5c-5.92 0-9 3.5-9 5.5v1h18v-1c0-2-3.08-5.5-9-5.5z"></path><circle cx="10" cy="6" r="5" fill="currentColor"></circle></svg>
+              <div class="icon">
+                <i class="fas fa-heartbeat"></i>
               </div>
               <h4 class="title"><a href="">Active Participation:</a></h4>
               <p class="description" id="textt3">Finally, active participation. This can range from taking new treatments to regular health check-ups.</p>
@@ -229,6 +182,7 @@
 
     <!-- ======= Partners Section ======= -->
     <div class="section-title">
+      <h6>Our Partners</h6>
       <h2>Our Satisfied Partners</h2>
     </div>
     <div class="slider">
@@ -260,6 +214,7 @@
     <section class="about1">
       <div class="container">
         <div class="section-title">
+          <h6>What We Offer</h6>
           <h2>Our Services</h2>
           <p id="textt2">PRX Clinical Research, our mission is to translate biomedical discoveries into cutting-edge healthcare solutions.</p>
         </div>
@@ -284,11 +239,12 @@
     <section id="appointment" class="appointment section-bg">
       <div class="container">
         <div class="section-title">
+          <h6>Get Started</h6>
           <h2>Make an Appointment</h2>
           <p id="textt2">Embarking on your journey to better health starts with a single step. Schedule your appointment now.</p>
         </div>
         <div class="text-center">
-          <button type="submit" style="background: #1977cc; color: white; padding: 15px 40px; border: none; border-radius: 50px;">
+          <button type="submit" style="background: linear-gradient(135deg, #F97316, #FB923C); color: white; padding: 15px 40px; border: none; border-radius: 50px; font-weight: 600;">
             <a href="mailto:admin@prxresearch.com" style="color: white;">Make an Appointment</a>
           </button>
         </div>
@@ -299,6 +255,7 @@
     <section id="Sub-Specialties" class="departments">
       <div class="container">
         <div class="section-title">
+          <h6>Our Expertise</h6>
           <h2>Our Sub-Specialties</h2>
           <h6><b>Explore Our Centers of Excellence</b></h6>
           <p id="textt2">Dive into our specialized Sub-Specialties where cutting-edge care meets personalized treatment.</p>
@@ -464,9 +421,10 @@
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-title">
-          <h2>Contact</h2>
+          <h6>Contact Us</h6>
+          <h2>Get In Touch</h2>
           <b>Reach Out for Personalized Care</b>
-          <p id="textt4"><br><br>If you have any questions or need further information about our services, don't hesitate to contact us.</p>
+          <p id="textt4"><br>If you have any questions or need further information about our services, don't hesitate to contact us.</p>
         </div>
       </div>
       <div>
@@ -487,17 +445,17 @@
             <p>1011 N. Galloway Avenue<br>Mesquite, TX, 75149<br><br><strong>Phone:</strong><br>9727774428<br><strong>Email:</strong> admin@prxresearch.com</p>
           </div>
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Quick Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">About Us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="sponsors.html">Sponsors and CRO's</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="sponsors.html">Sponsors</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="faq.html">FAQs</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact Us</a></li>
             </ul>
           </div>
           <div class="col-lg-5 col-md-6 footer-newsletter">
-            <h4>Schedule Your Visit to PRX Research</h4>
+            <h4>Schedule Your Visit</h4>
             <p id="textt4">If you'd like to make an appointment, simply click the button below.</p>
             <a href="mailto:admin@prxresearch.com" class="appointment-btn1 scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
           </div>
@@ -526,3 +484,4 @@
 
 </body>
 </html>
+
