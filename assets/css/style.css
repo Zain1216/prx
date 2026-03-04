@@ -251,31 +251,146 @@ body {
   background: rgba(13, 148, 136, 0.1) !important;
 }
 
-/* Mobile Nav Toggle */
+/* ===========================================
+   Responsive Navbar - Mobile Styles
+   =========================================== */
+
+/* Mobile Nav Toggle - Fixed positioning */
 .mobile-nav-toggle {
   display: none;
-  font-size: 28px;
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1003;
+  background: var(--primary-teal);
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle:hover {
+  background: var(--primary-teal-dark);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.mobile-nav-toggle i {
+  font-size: 24px;
+}
+
+/* Mobile Nav Close Button */
+.navbar-close {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: var(--light-bg);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1004;
+}
+
+.navbar-close:hover {
+  background: var(--primary-teal);
+  color: white;
+}
+
+.navbar-close i {
+  font-size: 24px;
   color: var(--text-dark);
 }
 
+.navbar-close:hover i {
+  color: white;
+}
+
+/* Mobile Nav Backdrop */
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Appointment Button in Nav */
+.mobile-appointment {
+  display: none;
+  margin-top: 15px;
+}
+
+.mobile-appointment .appointment-btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 14px 25px !important;
+  font-size: 15px !important;
+}
+
+/* ===========================================
+   Responsive Media Queries
+   =========================================== */
+
 @media (max-width: 991px) {
+  /* Show mobile toggle */
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
   }
   
+  /* Show close button */
+  .navbar-close {
+    display: flex;
+  }
+  
+  /* Header adjustments */
+  #header {
+    top: 40px;
+  }
+  
+  body {
+    padding-top: 90px;
+  }
+  
+  #topbar {
+    position: relative;
+  }
+  
+  /* Navbar mobile styles */
   .navbar {
     position: fixed;
     top: 0;
     right: -100%;
     width: 85%;
-    max-width: 350px;
+    max-width: 320px;
     height: 100vh;
     background: white;
-    box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.15);
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1001;
-    padding: 80px 30px 30px;
+    z-index: 1002;
+    padding: 70px 25px 30px;
+    overflow-y: auto;
   }
   
   .navbar.active {
@@ -285,21 +400,164 @@ body {
   .navbar ul {
     flex-direction: column;
     align-items: flex-start;
+    gap: 5px;
   }
   
   .navbar li {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 0;
   }
   
   .navbar a {
     width: 100%;
-    padding: 15px 20px;
+    padding: 14px 18px;
     font-size: 16px;
+    border-radius: var(--radius-md);
+    color: var(--text-dark);
   }
   
   .navbar a::before {
     display: none;
+  }
+  
+  .navbar a:hover, 
+  .navbar a.active {
+    background: rgba(13, 148, 136, 0.1) !important;
+    color: var(--primary-teal) !important;
+  }
+  
+  /* Show mobile appointment button */
+  .mobile-appointment {
+    display: block;
+  }
+  
+  /* Hide desktop appointment button on mobile */
+  .appointment-btn.d-none.d-lg-inline-block {
+    display: none !important;
+  }
+  
+  /* Hero section adjustments */
+  #hero h4 {
+    font-size: 36px;
+  }
+  
+  #hero-video {
+    width: 100%;
+    opacity: 0.15;
+  }
+  
+  .section-title h2 {
+    font-size: 28px;
+  }
+  
+  .floating-element {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .section-title h2 {
+    font-size: 26px;
+  }
+  
+  .why-us .content {
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .appointment .php-email-form {
+    padding: 25px;
+  }
+  
+  #hero {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 0 60px;
+  }
+  
+  #hero h4 {
+    font-size: 32px;
+  }
+  
+  #hero p {
+    font-size: 16px;
+  }
+  
+  .departments .tab-pane {
+    padding: 20px;
+  }
+  
+  .departments .nav-tabs {
+    margin-bottom: 25px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  #hero h4 {
+    font-size: 26px;
+  }
+  
+  .navbar {
+    width: 90%;
+    max-width: none;
+    right: -100%;
+  }
+  
+  .navbar.active {
+    right: 0;
+  }
+  
+  .mobile-nav-toggle {
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .mobile-nav-toggle i {
+    font-size: 20px;
+  }
+  
+  .navbar a {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+  .mobile-appointment .appointment-btn {
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+  }
+  
+  #tt {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+  
+  .section-title h2 {
+    font-size: 24px;
+  }
+}
+
+/* Desktop - Hide mobile elements */
+@media (min-width: 992px) {
+  .mobile-nav-toggle,
+  .navbar-close,
+  .nav-backdrop,
+  .mobile-appointment {
+    display: none !important;
+  }
+  
+  .navbar {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    padding: 0;
   }
 }
 

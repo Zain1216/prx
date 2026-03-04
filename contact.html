@@ -55,19 +55,36 @@
             <a href="index.html" class="logo me-auto">
                 <img src="assets/img/prx-research-logo.webp" width="100" alt="" class="img-fluid">
             </a>
+            
+            <!-- Mobile Nav Toggle -->
+            <div class="mobile-nav-toggle d-lg-none">
+                <i class="bi bi-list"></i>
+            </div>
+            
             <nav id="navbar" class="navbar">
+                <!-- Mobile Close Button -->
+                <div class="navbar-close d-lg-none">
+                    <i class="bi bi-x"></i>
+                </div>
+                
                 <ul>
                     <li><a class="nav-link scrollto" href="index.html">Home</a></li>
                     <li><a class="nav-link scrollto" href="about.html">About Us</a></li>
                     <li><a class="nav-link scrollto" href="sponsors.html">Sponsors</a></li>
                     <li><a class="nav-link scrollto" href="faq.html">FAQs</a></li>
                     <li><a class="nav-link scrollto active" href="contact.html">Contact</a></li>
+                    <!-- Appointment Button - Visible on Mobile -->
+                    <li class="mobile-appointment d-lg-none"><a href="mailto:admin@prxresearch.com" class="appointment-btn scrollto">Appointment</a></li>
                 </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <a href="mailto:admin@prxresearch.com" class="appointment-btn scrollto">Appointment</a>
+            
+            <!-- Desktop Appointment Button -->
+            <a href="mailto:admin@prxresearch.com" class="appointment-btn scrollto d-none d-lg-inline-block">Appointment</a>
         </div>
     </header>
+    
+    <!-- Mobile Nav Backdrop -->
+    <div class="nav-backdrop"></div>
     
     <!-- Hero Image -->
     <img src="assets/img/ri3.jpeg" id="down3" width="100%" alt="Contact PRX Research">

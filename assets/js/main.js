@@ -179,14 +179,44 @@
    * Mobile nav toggle
    */
   const mobileNavToggle = select('.mobile-nav-toggle');
+  const navbar = select('#navbar');
+  const navbarClose = select('.navbar-close');
+  const navBackdrop = select('.nav-backdrop');
+  
   if (mobileNavToggle) {
     mobileNavToggle.addEventListener('click', function() {
-      const navbar = select('#navbar');
       navbar.classList.toggle('active');
-      this.classList.toggle('bi-list');
-      this.classList.toggle('bi-x');
+      navBackdrop.classList.toggle('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
     });
   }
+  
+  // Close menu when clicking close button
+  if (navbarClose) {
+    navbarClose.addEventListener('click', function() {
+      navbar.classList.remove('active');
+      navBackdrop.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    });
+  }
+  
+  // Close menu when clicking backdrop
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', function() {
+      navbar.classList.remove('active');
+      navBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+  
+  // Close menu when pressing Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && navbar && navbar.classList.contains('active')) {
+      navbar.classList.remove('active');
+      navBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 
   /**
    * Mobile nav dropdowns activate
